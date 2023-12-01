@@ -1,6 +1,7 @@
 import 'package:chat/models/user.dart';
 import 'package:chat/providers/user_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
 class EditUserPage extends StatefulWidget {
@@ -55,20 +56,26 @@ class _EditUserPageState extends State<EditUserPage> {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: ElevatedButton(
-                  child: const Text("Post edited data"),
+                  child: const Text("Post changes"),
                   onPressed: () {
-                    User newData = User(
-                        id: user.id,
-                        name: nameController.text,
-                        email: emailController.text,
-                        phone: phoneController.text,
-                        bs: bsController.text,
-                        website: user.website,
-                        catchPhrase: catchPhraseController.text,
-                        companyName: companyNameController.text,
-                        latitude: latitudeController.text,
-                        longitude: longitudeController.text);
-                    _service.postUser(newData);
+                    Fluttertoast.showToast(msg: "This does nothing");
+                    // User newUserData = User(
+                    //     id: user.id,
+                    //     name: nameController.text,
+                    //     email: emailController.text,
+                    //     phone: phoneController.text,
+                    //     bs: bsController.text,
+                    //     website: user.website,
+                    //     catchPhrase: catchPhraseController.text,
+                    //     companyName: companyNameController.text,
+                    //     latitude: latitudeController.text,
+                    //     longitude: longitudeController.text);
+                    // if (newUserData != user) {
+                    //   Provider.of<UserProvider>(context, listen: false)
+                    //       .updateUserData(newUserData);
+                    //   Navigator.pop(context);
+                    // }
+                    // _service.postUser(newData);
                   },
                 ),
               ),

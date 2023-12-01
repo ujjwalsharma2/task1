@@ -1,4 +1,3 @@
-import 'package:chat/models/user.dart';
 import 'package:chat/pages/edit_user_page.dart';
 import 'package:chat/providers/user_provider.dart';
 import 'package:flutter/material.dart';
@@ -13,13 +12,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-  //     Provider.of<UserProvider>(context, listen: false).getUsers();
-  //   });
-  // }
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Provider.of<UserProvider>(context, listen: false).getUsers();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +32,8 @@ class _HomePageState extends State<HomePage> {
                   Provider.of<UserProvider>(context, listen: false).getUsers();
                 });
               },
-              icon: Icon(
-                Icons.replay_circle_filled_rounded,
+              icon: const Icon(
+                Icons.replay,
                 size: 28,
               )),
         ],

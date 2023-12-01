@@ -14,6 +14,18 @@ class UserProvider extends ChangeNotifier {
     _users = response;
     notifyListeners();
   }
+
+  // void updateUserData(User newUserData) {
+  //   for (var user in _users) {
+  //     if (user.id == newUserData.id) {
+  //       user = newUserData;
+  //       _users = users;
+  //       notifyListeners();
+  //       break;
+  //     }
+  //   }
+  //   print(users.toString());
+  // }
 }
 
 class UserService {
@@ -23,9 +35,6 @@ class UserService {
 
     if (response.statusCode == 200) {
       List<dynamic> jsonBody = jsonDecode(response.body);
-      // print(jsonBody.toString());
-      // final List<dynamic> usersJson = jsonBody[];
-      // print(usersJson.toString());
       final List<User> users =
           jsonBody.map((dynamic json) => User.fromJson(json)).toList();
       // print(users.toList());
@@ -35,17 +44,17 @@ class UserService {
     }
   }
 
-  postUser(User user) async {
-    var response = await http.post(Uri.parse(url), body: {
-      "id": user.id.toString(),
-      "name": user.name,
-      "email": user.email,
-      "phone": user.phone,
-      "catchPhrase": user.catchPhrase,
-      "bs": user.bs,
-      "latitude": user.latitude,
-      "longitude": user.longitude,
-    });
-    print(response.body + "\n" + response.statusCode.toString());
-  }
+  // postUser(User user) async {
+  //   var response = await http.post(Uri.parse(url), body: {
+  //     "id": user.id.toString(),
+  //     "name": user.name,
+  //     "email": user.email,
+  //     "phone": user.phone,
+  //     "catchPhrase": user.catchPhrase,
+  //     "bs": user.bs,
+  //     "latitude": user.latitude,
+  //     "longitude": user.longitude,
+  //   });
+  //   print(response.body + "\n" + response.statusCode.toString());
+  // }
 }
